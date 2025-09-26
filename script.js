@@ -25,7 +25,31 @@ function getHumanChoice () {
 let humanScore = 0;
 let computerScore = 0;
 
-// Play a round = take both decisions into account and decide who wins  
+// Play a round = take both decisions into account and decide who wins
+function playRound (computerChoice, humanChoice) {
+    humanChoice = humanChoice.toLowerCase();
+
+    if (humanChoice == computerChoice) {
+        console.log(`Draw! Both chose ${computerChoice}.`);
+    }
+    if (
+        (humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "scissors" && computerChoice === "paper") ||
+        (humanChoice === "paper" && computerChoice === "rock")
+    ) {
+        humanScore++;
+        console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
+    }
+    else {
+    computerScore++;
+    console.log(`Computer wins! ${computerChoice} beats ${humanChoice}.`);
+    }
+}
+
+let computerSelection = getComputerChoice();
+let humanSelection = getHumanChoice();
+
+playRound(computerSelection, humanSelection);
 
 // game will play 5 rounds
 
