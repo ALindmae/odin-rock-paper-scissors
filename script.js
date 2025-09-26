@@ -16,6 +16,11 @@ function getComputerChoice () {
 
 
 // Prompt human rock, paper, scissors decision
+function getHumanChoice () {
+    let humanChoice = prompt("rock, paper or scissors?");
+    return humanChoice;
+}
+
 
 // Keep track of players score
 
