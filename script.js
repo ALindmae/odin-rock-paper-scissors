@@ -21,8 +21,9 @@ function getHumanChoice () {
     return humanChoice;
 }
 
-
 // Keep track of players score
+let humanScore = 0;
+let computerScore = 0;
 
 // Play a round = take both decisions into account and decide who wins  
 
