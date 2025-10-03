@@ -20,8 +20,10 @@ buttonContainer.addEventListener('click', function playRound(e) {
     let humanChoice = e.target.textContent;
     humanChoice = humanChoice.toLowerCase();
 
+    let resultDiv = document.querySelector("#div-result");
+
     if (humanChoice === computerChoice) {
-        console.log(`Draw! Both chose ${computerChoice}.`);
+        resultDiv.textContent = `Draw! Both chose ${computerChoice}. Score: ${humanScore} | ${computerScore}.`;
     }
     else if (
         (humanChoice === "rock" && computerChoice === "scissors") ||
@@ -29,23 +31,25 @@ buttonContainer.addEventListener('click', function playRound(e) {
         (humanChoice === "paper" && computerChoice === "rock")
     ){
         humanScore++;
-        console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
+        resultDiv.textContent = `You win! ${humanChoice} beats ${computerChoice}. Score: ${humanScore} | ${computerScore}.`;
     }
     else {
         computerScore++;
-        console.log(`Computer wins! ${computerChoice} beats ${humanChoice}.`);
+        resultDiv.textContent = `Computer wins! ${computerChoice} beats ${humanChoice}. Score: ${humanScore} | ${computerScore}.`;
     }
 
 
     if (humanScore == 5 || computerScore == 5) {
         if (humanScore > computerScore) {
-            console.log("You won the game!");
+            resultDiv.textContent = `You won the game! Score: ${humanScore} | ${computerScore}. `;
         }
         else if (computerScore > humanScore) {
-            console.log("Computer won the game!");
+            resultDiv.textContent = `Computer won the game! Score: ${humanScore} | ${computerScore}. `;
         }
         else {
-        console.log("The game ended in a draw.");
+            resultDiv.textContent = `The game ended in a draw. Score: ${humanScore} | ${computerScore}.`;
         }
+        humanScore = 0;
+        computerScore = 0;
     }
 });
